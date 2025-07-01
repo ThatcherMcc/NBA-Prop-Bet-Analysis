@@ -53,5 +53,9 @@ def graph_dataframe(df: pd.DataFrame, player_name: str, prop_line: float, stat: 
     plt.xticks(rotation=75)
     plt.legend()
     plt.tight_layout()
+    # Adjust y-axis to give space for bar labels
+    max_val = df_last[stat].max()
+    plt.ylim(top=max(max_val, prop_line) * 1.1)   # Add buffer space above tallest bar or prop line
+
     plt.show()
     
